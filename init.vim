@@ -47,22 +47,23 @@ set cursorcolumn
 " ステータスライン
 "---------------------------------
 set laststatus=2
-set statusline=%F%m%=Ln\ %l,\ Col\ %c\ [0x%B]\ (%p%%)
+set statusline=%F%m%=%l,%c(%p%%)
 
 "---------------------------------
 " タブ
 "---------------------------------
 set hidden
 nnoremap <C-t> :tabnew<CR> " Ctrl+tで新規タブを開く
-nnoremap <C-F4> :bdelete<CR> " Ctrl+F4でバッファを閉じる
-nnoremap <C-i> :tabnext<CR> " Ctrl+Tabで1つ右のタブに移動 " <Ctrl+i>と<Tab>が同じ文字コードとして扱われている
-" nnoremap <C-S-Tab> :tabprevious<CR> " Ctrl+Shift+Tabで1つ左のタブに移動
+nnoremap <Tab> gt " Tabで1つ右のタブに移動
+nnoremap <S-Tab> gT " Tabで1つ左のタブに移動
+" nnoremap <C-F4> :bdelete<CR> " Ctrl+F4でバッファを閉じる
 
 "---------------------------------
 " ターミナル
 "---------------------------------
 tnoremap ;; <C-\><C-n>
-command! -nargs=* Terminal new | wincmd J | resize 15 | set nonumber | terminal <args>
+command! -nargs=* Terminal set nonumber | terminal <args>
+command! -nargs=* Sterminal new | wincmd r | resize 15 | set nonumber | terminal <args>
 command! -nargs=* Vterminal vnew | set nonumber | terminal <args>
 
 " nvim ColorScheme PaperColor
